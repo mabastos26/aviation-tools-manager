@@ -1,14 +1,15 @@
 import "./styles.css"
-import logo from "../../img/domgeiv.bmp"
+import logo from "./img/domgeiv.bmp"
+import {Link} from "react-router-dom"
 
 function Header(){
     return(
         <div className="main-container">
             <img src={logo} alt="imagem não carregada"/>
             <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Ferramentas</a></li>
-                <li><a href="">Usuários</a></li>
+                <li><Link to="/" exact={true}><a>Home</a></Link></li>
+                <li><Link to="/ferramentas"><a>Ferramentas</a></Link></li>
+                <li><Link to="/usuarios"><a>Usuários</a></Link></li>
             </ul>
         </div>
     )
