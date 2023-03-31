@@ -1,0 +1,28 @@
+.main-container{
+    background-color: #eee;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 5px red;
+    padding: 10px;
+}
+
+.main-container ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-container ul li{
+  margin-right: 20px;
+}
+
+.main-container img{
+    height: 3em;
+}
+
+a{
+    text-decoration: none;
+  
+}
+
