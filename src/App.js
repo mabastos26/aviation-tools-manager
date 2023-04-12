@@ -1,9 +1,10 @@
-import  Ferramentas from "./pages/Ferramentas";
+import  CadastroFerramentas from "./pages/CadastroFerramentas";
 import Usuarios from "./pages/Usuarios"
 import Home from "./pages/Home"
 import Header from "./components/Header"
-import Footer from "./components/Footer"
 import {BrowserRouter,Routes, Route} from 'react-router-dom'
+
+
 
 
 function App() {
@@ -13,12 +14,10 @@ function App() {
       <Header/>
       <Routes>
         <Route path="/" element={<Home/>}></Route>
-        <Route path="/ferramentas" element={<Ferramentas/>}/>
+        <Route path="/ferramentas" element={<CadastroFerramentas/>}/>
         <Route path="/usuarios" element={<Usuarios/>}/>
       </Routes>
-      <Footer/>
     </BrowserRouter>
-      
     </div>
   );
 }

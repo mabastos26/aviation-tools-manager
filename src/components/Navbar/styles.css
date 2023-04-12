@@ -1,0 +1,15 @@
+.main-container-navbar{
+    display: flex;
+    width: 25vw;
+    background-color: #eee;
+    padding-inline-start: 10px;
+    border-radius: 5px solid;
+
+}
+
+.main-container-navbar ul{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    list-style: none;
+}
