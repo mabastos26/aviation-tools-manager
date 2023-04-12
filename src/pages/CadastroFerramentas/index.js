@@ -1,13 +1,10 @@
 import './styles.css'
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { FaCheck } from 'react-icons/fa';
-import {Link, useParams} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {useEffect, useState} from 'react'
-import moment from 'moment'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import '../../Service'
+import axios from 'axios'
 
 
 const CadastroFerramentas=()=>{
@@ -19,7 +16,7 @@ const CadastroFerramentas=()=>{
      const [nomenclatura,setNomenclatura]=useState('');
      const [fabricante,setFabricante]=useState('');
      const [calibravel,setCalibravel]=useState(false);
-     const [data,setData]=useState('');
+     const [date,setDate]=useState('');
      const [quantidade,setQuantidade]=useState(0);
      const [compoeFerramenta,setCompoeFerramente]=useState(0);
      const [localizacao,setLocalizacao]=useState(0);
@@ -31,6 +28,38 @@ const CadastroFerramentas=()=>{
      useEffect(()=>{
         getTools();
      },[]);
+
+    const saveTool= async ()=>{
+        const Tool = await axios.post("http://localhost:8888/todo",{
+            codigo,
+            pn,
+            sn,
+            nomenclatura,
+            fabricante,
+            calibravel,
+            date,
+            quantidade,
+            compoeFerramenta,
+            localizacao
+        });
+        getTools();
+        notify();
+     } 
+    
+     const getTools=async()=>{
+        const Tools = await axios.get("http://localhost:8888/todo");
+        setToolsBD(Tools.data);
+        console.log(Tools);
+     }
+    
+     const updateTool=async (id,status)=>{
+        
+        await axios.put("http://localhost:8888/todo/"+id,{
+            status:!status,
+        })
+        getTools();
+    }
+
 
      return(
         <div className="container-CadastroFerramentas">
@@ -44,29 +73,22 @@ const CadastroFerramentas=()=>{
                         <input placeholder='serial number' onChange={(txt)=>setSn(txt.target.value)}/>
                         <input placeholder='nomenclatura' onChange={(txt)=>setNomenclatura(txt.target.value)}/>
                         <input placeholder='fabricante' onChange={(txt)=>setFabricante(txt.target.value)}/>
-                        <input type='checkbox' value={true} onChange={(txt)=>setCalibravel(txt.target.value)}/>
-                        <DatePicker dateFormat="dd/MM/yyyy" selected={date} onChange={(txt)=>setDate(txt)} />
+                        <input type='checkbox' onChange={(txt)=>setCalibravel(txt.target.value)}/>
                         <input placeholder='quantidade' onChange={(txt)=>setQuantidade(txt.target.value)}/>
                         <input placeholder='compoe ferramenta' onChange={(txt)=>setCompoeFerramente(txt.target.value)}/>
                         <input placeholder='localizacao' onChange={(txt)=>setLocalizacao(txt.target.value)}/>               
-                        <button onClick={Service.saveTool}>salvar</button>
+                        <button onClick={saveTool}>salvar</button>
                     </div>
                 </div>
                     <ul className="container-right">
-                        {tasksBD.map(item=>{   
-                            const formattedDate= moment(item.date).format("DD/MM/yyyy");
+                        {toolsBD.map(item=>{   
                             return(
-                            <li key={item._id}>
+                            <li key={item.id}>
                                 <div>
-                                    <Link to={"/Details/"+item._id}>
-                                        <h2 style={item.status? {} : {textDecoration:'line-through'} }>{item.title}</h2>
-                                        <h3>{formattedDate}</h3>
-                                        <h3>{item.description}</h3>
+                                    <Link to={"/Details/"+item.id}>
+                                        <h2 >{item.nomenclatura}</h2>
                                     </Link>
                                 </div>  
-                                <button onClick={()=>updateTask(item._id,item.status)}>
-                                    <FaCheck size={22} color={"#1a1a1a"}/>
-                                </button>
                             </li>  
                             ) 
                              })} 
