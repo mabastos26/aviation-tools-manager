@@ -1,0 +1,50 @@
+.container-toolsmanage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ 
+}
+
+.container-up{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    width: 100vw;
+    
+}
+
+.container-down{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    width: 100vw;
+    border: 3px solid var(--gray-geiv);
+    border-radius: 15px;
+}
+
+
+.container-left{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    position: relative;
+}
+
+.container-left-info{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 40%;
+}
+
+.container-right{
+    width: 50%;
+    height: 100%;
+}
+
+

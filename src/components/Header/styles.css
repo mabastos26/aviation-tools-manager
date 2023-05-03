@@ -1,24 +1,27 @@
-.main-container{
-    background-color: #eee;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: solid 5px red;
-    padding: 10px;
+*{
+    background-color: var(--red-geiv);
 }
 
-.main-container ul{
+.container-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    position: relative;
+    border-bottom: 3px solid var(--gray-geiv);
+}
+
+.container-header ul{
     display: flex;
     list-style: none;
     justify-content: space-between;
-    align-items: center;
 }
 
-.main-container ul li{
+.container-header ul li{
   margin-right: 20px;
   font-size: 1.6rem;
 }
 
-.main-container img{
+.container-header img{
     height: 4rem;
     
 }

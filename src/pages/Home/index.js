@@ -2,7 +2,7 @@ import "./styles.css"
 
 const Home =()=>{
     return(
-        <div className="main-container-home">
+        <div className="container-home">
             Home
         </div>
     )

@@ -1,10 +1,23 @@
+:root {
+    --gray-geiv: #ccc;
+    --red-geiv: red;
+    --white-geiv: #fff;
+    --box-style: 3px solid var(var(--gray-geiv));
+  }
+  
 *{
     margin:0px;
     padding: 0px;
     box-sizing: border-box;
     font-family: sans-serif;
+    background-color: var(--white-geiv);
+
 }
 
 html{
     font-size: 62.5%;
+}
+body{
+    height: 100vh;
+
 }

@@ -1,0 +1,10 @@
+.container-kit{
+    border: 3px solid var(--gray-geiv);
+    border-radius: 15px;
+    width: 50%;
+    padding: 1rem;
+}
+.tools-kit{
+    overflow: scroll;
+    height: 75%;
+}
