@@ -1,10 +1,9 @@
 .container-navbar{
     display:flex;
-    flex-direction: column;
     align-items: center;
     width: 100%;
     border: 3px solid var(--gray-geiv);
-    padding: 10px;
+    padding: 0.5rem;
     border-radius: 15px;
     }
 
@@ -19,10 +18,10 @@
     display: flex;
     flex-direction: column;
     align-self: start;
-    padding: 2rem;
+    padding: 0.5rem;
     border: 3px solid var(--gray-geiv);
     border-radius: 15px;
-    height: 50%;
+    height: 60%;
     width: 100%;
     margin-bottom: 2rem;
 }

@@ -6,24 +6,14 @@ import Alltools from "../../components/Alltools";
 import axios from "axios";
 import {useState,useEffect } from "react";
 
-    //inicialização dos useStates da página
+   
 
 const Toolsmanage=()=>{
-    let renderizacao=1;
+    
     //inicialização dos useStates da página
    
     const [toolsBD,setToolsBD]=useState([]);
-    /*const [selectedToolId,setSelectedToolId]=useState(1);
-    const [selectedTool,setSelectedTool]=useState([{"id": 1,"codigo": null,"pn": "cx-ferramenta","sn": "1","nomenclatura": "caixa de ferramenta","fabricante": ""
-    }]);*/
     
-
-   
-    /*const childToParent=(updatedSelectedId)=>{
-        setSelectedToolId(updatedSelectedId);
-        setSelectedTool(toolsBD.filter((item)=>item.id==updatedSelectedId))
-    }*/
-
     //No momento de carga da página, busca todas as ferramentas no banco de dados
     useEffect(()=>{
         getTools();
@@ -32,9 +22,9 @@ const Toolsmanage=()=>{
      const getTools=async()=>{
         const Tools =await axios.get("http://localhost:8080/tools/all");
         setToolsBD(Tools.data);
-        renderizacao++;
+    
      }
-    console.log(renderizacao)
+  
      
 
     return(
