@@ -5,22 +5,24 @@ import Kitinformation from "../../components/Kitinformation";
 import Alltools from "../../components/Alltools";
 import axios from "axios";
 import {useState,useEffect } from "react";
+
     //inicialização dos useStates da página
 
 const Toolsmanage=()=>{
+    let renderizacao=1;
     //inicialização dos useStates da página
    
     const [toolsBD,setToolsBD]=useState([]);
-    const [selectedToolId,setSelectedToolId]=useState(1);
+    /*const [selectedToolId,setSelectedToolId]=useState(1);
     const [selectedTool,setSelectedTool]=useState([{"id": 1,"codigo": null,"pn": "cx-ferramenta","sn": "1","nomenclatura": "caixa de ferramenta","fabricante": ""
-    }]);
+    }]);*/
     
 
    
-    const childToParent=(updatedSelectedId)=>{
+    /*const childToParent=(updatedSelectedId)=>{
         setSelectedToolId(updatedSelectedId);
         setSelectedTool(toolsBD.filter((item)=>item.id==updatedSelectedId))
-    }
+    }*/
 
     //No momento de carga da página, busca todas as ferramentas no banco de dados
     useEffect(()=>{
@@ -30,22 +32,23 @@ const Toolsmanage=()=>{
      const getTools=async()=>{
         const Tools =await axios.get("http://localhost:8080/tools/all");
         setToolsBD(Tools.data);
+        renderizacao++;
      }
-
+    console.log(renderizacao)
      
 
     return(
         <div className="container-toolsmanage">
             <div className="container-up">
                 <div className="container-left">
-                        <Register selectedTool={selectedTool} selectedToolId={selectedToolId}/>
+                        <Register/>
                     <div className="container-left-info">
                         <Toolcalibration/>
                         <Kitinformation/>
                     </div>
               </div>
                 <div className="container-right">
-                    <Alltools allTools={toolsBD} selectedToolId={selectedToolId} childToParent={childToParent}/>
+                    <Alltools allTools={toolsBD}/>
                 </div>
             </div>
             <div className="container-down">
