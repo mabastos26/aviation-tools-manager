@@ -9,7 +9,7 @@ import {useState,useEffect } from "react";
    
 
 const Toolsmanage=()=>{
-    
+    const url = "http://localhost:8080/tools/all"
     //inicialização dos useStates da página
    
     const [toolsBD,setToolsBD]=useState([]);
@@ -20,10 +20,13 @@ const Toolsmanage=()=>{
      },[]);
    
      const getTools=async()=>{
-        const Tools =await axios.get("http://localhost:8080/tools/all");
-        setToolsBD(Tools.data);
+        const response =await fetch(url);
+        response.json()
+                .then(result=>setToolsBD(result))
     
      }
+
+     console.log(toolsBD)
   
      
 

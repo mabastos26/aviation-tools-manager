@@ -4,7 +4,7 @@ import { useSelector,useDispatch } from "react-redux";
 import {useState} from "react"
 
 const Alltools=({allTools})=>{
-    const[selectedToolId,setSelectedToolId]=useState(1);
+    const[selectedToolId,setSelectedToolId]=useState(0);
     const dispatch=useDispatch();
     const updateSelectedTool=(item)=>{
         dispatch({
@@ -25,7 +25,7 @@ const Alltools=({allTools})=>{
                             .map(item=>{
                             return(
                             <div key={item.id}className='line'>
-                                <div  hidden={item.id==selectedToolId?false:true}>
+                                <div  hidden={item.id===selectedToolId?false:true}>
                                     <FaArrowRight/>
                                 </div>
                                 <button className="itens" onClick={()=>updateSelectedTool(item)/*childToParent(item.id)*/}>   
