@@ -1,24 +1,24 @@
-*{
-    background-color: var(--red-geiv);
-}
 
 .container-header{
     display: flex;
     justify-content: space-between;
     padding: 10px;
     position: relative;
-    border-bottom: 3px solid var(--gray-geiv);
+    border-bottom: 3px solid var(--red-geiv);
+    background-color: var(--gray-geiv);
 }
 
 .container-header ul{
     display: flex;
     list-style: none;
     justify-content: space-between;
+    background-color: transparent ;
 }
 
 .container-header ul li{
   margin-right: 20px;
   font-size: 1.6rem;
+  background-color: transparent ;
 }
 
 .container-header img{
@@ -28,6 +28,6 @@
 
 a{
     text-decoration: none;
-  
+    background-color: transparent ; 
 }
 

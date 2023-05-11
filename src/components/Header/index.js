@@ -1,5 +1,5 @@
 import "./styles.css"
-import logo from "./img/domgeiv.bmp"
+import logo from "./img/dom-geiv-trans.png"
 import {Link} from "react-router-dom"
 
 function Header(){
