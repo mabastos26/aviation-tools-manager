@@ -3,7 +3,6 @@ import Register from "../../components/Register";
 import Toolcalibration from "../../components/Toolcalibration";
 import Kitinformation from "../../components/Kitinformation";
 import Alltools from "../../components/Alltools";
-import axios from "axios";
 import {useState,useEffect } from "react";
 
    
@@ -13,6 +12,8 @@ const Toolsmanage=()=>{
     //inicialização dos useStates da página
    
     const [toolsBD,setToolsBD]=useState([]);
+    const [isLoaded,setIsLoaded]=useState(false);
+    const [erro,setErro]=useState("");
     
     //No momento de carga da página, busca todas as ferramentas no banco de dados
     useEffect(()=>{
@@ -22,8 +23,11 @@ const Toolsmanage=()=>{
      const getTools=async()=>{
         const response =await fetch(url);
         response.json()
-                .then(result=>setToolsBD(result))
-    
+                .then(result=>{
+                    setToolsBD(result);
+                    setIsLoaded(true);
+                })
+                .catch((erro)=>setErro(erro.message))  
      }
 
      console.log(toolsBD)
@@ -41,7 +45,7 @@ const Toolsmanage=()=>{
                     </div>
               </div>
                 <div className="container-right">
-                    <Alltools allTools={toolsBD}/>
+                    <Alltools allTools={toolsBD} isLoaded={isLoaded} erro={erro}/>
                 </div>
             </div>
             <div className="container-down">

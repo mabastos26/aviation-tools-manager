@@ -41,8 +41,7 @@ const Register=()=>{
                 <ul>
                     <li><button>Adicionar</button></li>
                     <li><button>Remover</button></li>
-                    <li><button>Avançar</button></li>
-                    <li><button>Retroceder</button></li>
+                    <li><button>Editar</button></li>
                 </ul>
         </div>
         <label id="pn">Part Number</label>

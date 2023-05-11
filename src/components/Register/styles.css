@@ -9,7 +9,7 @@
 
 .container-navbar ul{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     list-style: none;
     width: 100%;
