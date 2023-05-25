@@ -57,7 +57,7 @@ const Register=()=>{
         <label id="quantidade">Quantidade</label>
         <input type="text" id="quantidade"/>
         <label id="calibravel">A ferramenta é calibrável?</label>
-        <input type="checkbox" id="calibravel"/>
+        <input type="checkbox" id="calibravel" checked="true"/>
 </div>
 )
 }

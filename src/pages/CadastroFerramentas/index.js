@@ -28,7 +28,7 @@ const CadastroFerramentas=()=>{
      },[]);
 
     const saveTool= async ()=>{
-        const tool = await axios.post("http://localhost:8080/tools/save",{
+        const tool = await axios.post("http://localhost:8080/tool/save",{
             codigo,
             pn,
             sn,
@@ -40,14 +40,14 @@ const CadastroFerramentas=()=>{
      } 
     
      const getTools=async()=>{
-        const Tools = await axios.get("http://localhost:8080/tools/all");
+        const Tools = await axios.get("http://localhost:8080/tool/all");
         setToolsBD(Tools.data);
         console.log(Tools);
      }
     
      const updateTool=async (id,status)=>{
         
-        await axios.put("http://localhost:8080/tools/"+id,{
+        await axios.put("http://localhost:8080/tool/"+id,{
             status:!status,
         })
         getTools();

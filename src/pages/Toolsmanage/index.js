@@ -8,7 +8,7 @@ import {useState,useEffect } from "react";
    
 
 const Toolsmanage=()=>{
-    const url = "http://localhost:8080/tools/all"
+    const url = "http://localhost:8080/tool/all"
     //inicialização dos useStates da página
    
     const [toolsBD,setToolsBD]=useState([]);

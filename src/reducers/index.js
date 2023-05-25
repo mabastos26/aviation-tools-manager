@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
 import SelectedToolReducer from "./SelectedToolReducer";
+import FilteredToolsReducer from "./FilteredToolsReducer";
 
 
 //O Reducer/index.js cria um repsitorio combinado de Reducers, isso fcilita a importação de diversos reducers no index.js principal. Através do componente CombineReducer do redux ele exporta todos os Reducers dentro de um objeto.
 export default combineReducers({
-    SelectedToolReducer
+    SelectedToolReducer,
+    FilteredToolsReducer
 })
