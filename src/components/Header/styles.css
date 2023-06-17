@@ -8,26 +8,10 @@
     background-color: var(--gray-geiv);
 }
 
-.container-header ul{
-    display: flex;
-    list-style: none;
-    justify-content: space-between;
-    background-color: transparent ;
-}
-
-.container-header ul li{
-  margin-right: 20px;
-  font-size: 1.6rem;
-  background-color: transparent ;
-}
-
 .container-header img{
     height: 4rem;
     
 }
 
-a{
-    text-decoration: none;
-    background-color: transparent ; 
-}
+
 

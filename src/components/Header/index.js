@@ -1,17 +1,13 @@
 import "./styles.css"
 import logo from "./img/dom-geiv-trans.png"
-import {Link} from "react-router-dom"
+import NavBar from "../NavBar";
+
 
 function Header(){
     return(
         <div className="container-header">
             <img src={logo} alt="imagem não carregada"/>
-            <ul>
-                <li><Link to="/" exact={true}><a>Home</a></Link></li>
-                <li><Link to="/ferramentas"><a>Ferramentas</a></Link></li>
-                <li><Link to="/toolsmanage"><a>Gerenciamento de ferramenta</a></Link></li>
-                <li><Link to="/usuarios"><a>Usuários</a></Link></li>
-            </ul>
+            <NavBar link1="Home" link2="ferramentas" link3="Gerenciamento de ferramentas" link4="usuários"/>
         </div>
     )
 

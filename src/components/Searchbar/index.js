@@ -1,8 +1,8 @@
 
-import {useState} from "react"
+import {useState,useEffect} from "react"
 
 
-const SearchBar=({searchTools})=>{
+const SearchBar=({allTools,filterTools})=>{
     const[query,setQuery]=useState("");
     const[searchParam]=useState(["nomenclatura"]);
 
@@ -18,6 +18,12 @@ const SearchBar=({searchTools})=>{
             });
         });
     }
+
+    useEffect(()=>{
+        let filteredTools=searchTools(allTools);
+        filterTools(filteredTools);
+    },[query])
+
     return(
      <div className="search-tool">
                 <label htmlFor="search-form">Buscar ferramenta:</label>
