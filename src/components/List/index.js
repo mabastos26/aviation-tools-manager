@@ -12,7 +12,7 @@ const List=({filteredTools,isLoaded,erro,selectTool,selectedTool})=>{
     }
     else{
     return(
-        <div className="container-List">
+        <div className="container-list">
             <div className="all-tools">
                         {
                             filteredTools.map(item=>{

@@ -1,0 +1,8 @@
+button{
+    border: 3px solid var(--gray-geiv);
+    border-radius: 15px;
+    width: 80%;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    cursor: pointer;
+}

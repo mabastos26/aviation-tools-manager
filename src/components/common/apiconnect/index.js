@@ -1,7 +1,13 @@
 import axios from 'axios'
 
 
-const Service=()=>{
+export async function saveTool(params){
+    const tool = await axios.post("http://localhost:8080/tools/save",params);
+    return tool;
+ } 
+
+
+/*function Service(){
 
     const saveTool= async (params)=>{
         const tool = await axios.post("http://localhost:8080/tools/save",params);
@@ -20,6 +26,9 @@ const Service=()=>{
     const deleteTool=async (id)=>{
         await axios.delete("http://localhost:8080/tools/"+id);
     }
-}
 
-export default Service;
+    export function teste(){
+
+    }
+}*/
+

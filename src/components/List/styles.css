@@ -1,6 +1,8 @@
-.container-alltools{
+.container-list{
     height: 100%;
-}.all-tools{
+}
+
+.all-tools{
     display: flex;
     align-items: normal;
     flex-direction: column;

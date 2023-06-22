@@ -1,0 +1,20 @@
+
+.container-details{
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+    padding: 0.5rem;
+    border: 3px solid var(--gray-geiv);
+    border-radius: 15px;
+    height: 60%;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+#calibravel{
+    align-self: self-start;
+}
+
+input{
+    
+}

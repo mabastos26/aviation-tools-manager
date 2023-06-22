@@ -1,29 +1,31 @@
 import "./styles.css"
-import Form from "../../components/Form";
-import Toolcalibration from "../../components/Toolcalibration";
-import Kitinformation from "../../components/Kitinformation";
+import Details from "./Details";
+import Toolcalibration from "./Toolcalibration";
+import Kitinformation from "./Kitinformation";
 import List from "../../components/List";
 import {useState,useEffect } from "react";
 import SearchBar from "../../components/Searchbar";
-
-
-   
+import FunctionBar from "../../components/FunctionBar";
+import Update from "./Update";
+import Register from "./Register"
 
 const Toolsmanagement=()=>{
     const url = "http://localhost:8080/tool/all"
-    //inicialização dos useStates da página
+
+    //Initialize the page states
     
     const [toolsBD,setToolsBD]=useState([]);
     const [isLoaded,setIsLoaded]=useState(false);
     const [erro,setErro]=useState("");
-
     const[filteredTools,setFilteredTools]=useState([]);
     const[selectedTool,setSelectedTool]=useState({});
+    const[selectedFunction,setSelectedFunction]=useState("");
     
-    //No momento de carga da página, busca todas as ferramentas no banco de dados
+    //On page load, get every tools from data base
+
     useEffect(()=>{
         getTools();
-     },[]);
+     },[selectedFunction]);
    
      const getTools=async()=>{
         const response =await fetch(url);
@@ -36,39 +38,45 @@ const Toolsmanagement=()=>{
                 .catch((erro)=>setErro(erro.message))  
             }
 
-     //Funções 
+     //Chield feedback
 
      function selectTool(tool){
         setSelectedTool(tool);
+        setSelectedFunction("details");
      }
 
      function filterTools(filteredTools){
         setFilteredTools(filteredTools)
      }
- 
 
+     function getFunction(functionBar){
+        setSelectedFunction(functionBar);
+    }
+
+    function toolSaved(){
+        getTools();
+    }
+ 
     return(
         <div className="container-toolsmanage">
             <div className="container-up">
                 <div className="container-left">
-                        <Form 
-                        field1="PN"
-                        field2="SN"
-                        field3="Codigo"
-                        field4="Nomenclatura"
-                        field5="fabricante"
-                        field6="Quantidade Total"
-                        field7="A ferrmenta é calibravel?"
-                        selectedTool={selectedTool}/>
+                <FunctionBar getFunction={getFunction}/>
+                        {
+                            selectedFunction==="details"?<Details selectedTool={selectedTool} getFunction={getFunction}/>
+                            :(selectedFunction==="cadastrar"?<Register toolSaved={toolSaved}/>:<Update selectedTool={selectedTool}/>)
+                        }
                     <div className="container-left-info">
                         <Toolcalibration/>
                         <Kitinformation/>
                     </div>
               </div>
                 <div className="container-right">
+                <div className="container-right-up">
                 <SearchBar 
                             allTools={toolsBD}
                             filterTools={filterTools}/>
+                </div>
                 <List 
                             filteredTools={filteredTools}
                             isLoaded={isLoaded}
